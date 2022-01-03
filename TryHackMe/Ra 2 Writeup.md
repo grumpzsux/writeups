@@ -316,9 +316,12 @@ dig selfservice.windcorp.thm @10.10.213.222
 ![image](https://user-images.githubusercontent.com/80599694/147988968-ce73fa94-2034-4b28-ad0d-11b5e86d4257.png)
 #### Boom!  Look at that, we captured an NTLMv2 hash! Next up, we are going to need to crack the NTLMv2 hash.
 ### Using Hashcat to Crack Hashes
+#### Save the NTLMv2 hash to file, for me it was hash.txt, we will then use our rockyou.txt password list to attempt to crack the hash.
 ````bash
 hashcat -m 5600 hash.txt rockyou.txt -o cracked.txt
 ````
 ![image](https://user-images.githubusercontent.com/80599694/147989174-d944da5e-d8e9-4278-ba08-75072d53ee62.png)
+#### After a few minutes, depending on your GPU, you should see that you cracked the hash, and now have Edward's password.
+![image](https://user-images.githubusercontent.com/80599694/147989352-14355dc1-d905-46e6-8a80-d9c9625c36b2.png)
 
 
