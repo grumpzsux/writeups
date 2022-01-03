@@ -289,5 +289,12 @@ openssl pkcs12 -in cert.pfx -out public.pem -clcerts -nokeys
 ````
 ![image](https://user-images.githubusercontent.com/80599694/147985564-dc6d88fa-541e-4f76-a3c4-109d5c54c5e0.png)
 
+### Now that we have a private and public key, can we update the DNS Entries?
+#### Let's try nsupdate:
+![image](https://user-images.githubusercontent.com/80599694/147986935-0a2043d5-40eb-4ddd-a749-7aeb2b1ec0ed.png)
 
+#### Since we have access to update DNS Records, we are using nsupdate to send a request to delete the current A record for the selfservice.windcorp.thm domain, then sending an update add request with our own IP address as an A record to have the selfservice domain resolve to our IP.
+
+### Let's confirm that the update worked but doing a quick dig
+![image](https://user-images.githubusercontent.com/80599694/147987419-266a4116-f1ec-47f1-9ada-4cd2f1f8bf61.png)
 
