@@ -204,3 +204,20 @@ Host script results:
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Mon Jan  3 00:41:24 2022 -- 1 IP address (1 host up) scanned in 115.55 seconds
 ````
+## Initial Enumeration Continued
+#### After I doing the initial Nmap Scan, I see that Port 80 is open. Let's goto the website and check it out:
+````bash
+http://10.10.213.2222
+````
+#### However, when you try to go to the IP address it is not displaying, as it is trying to route to the hostname: https://fire.windcorp.thm
+#### Add the HOSTNAME to your /etc/hosts file with the IP 10.10.213.222.
+````bash
+sudo nano /etc/hosts
+10.10.213.222
+ctrl+o
+ctrl+x
+`````
+#### However, an easier way to push this to your /etc/hosts file, you can use echo:
+````bash
+echo 10.10.213.222  fire.windcorp.thm >>/etc/hosts
+````
