@@ -233,3 +233,9 @@ echo 10.10.213.222  fire.windcorp.thm >>/etc/hosts
 selfservice.windcorp.thm
 selfservice.dev.windcop.thm
 ````
+### I decided to do a DNS look up and "dig" up anything: 😜
+````bash
+dig windcorp.thm any @10.10.213.222
+````
+![image](https://user-images.githubusercontent.com/80599694/147982759-b9eef036-02a3-4ae2-b55c-87b357a73e19.png)
+#### Look at that, we found our First Flag as a TXT Record.
