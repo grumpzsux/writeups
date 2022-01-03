@@ -250,7 +250,7 @@ gobuster -u https://fire.windcorp.thm -w /home/grumpz/seclists/Discovery/Web-Con
 https://fire.windcorp.thm/powershell
 ````
 ![image](https://user-images.githubusercontent.com/80599694/147983637-ec594ee3-a51e-423a-9623-fb095e9587a0.png)
-#### Well, this is interesting, but, I do no have any credentials to login here.  Let's save this to my notes, and contiue my dir busting.
+#### Well, this is interesting, but, I do not have any credentials to login here.  Let's save this to my notes, and contiue my dir busting.
 
 #### Decided to Dir Bust all the subdomains that I had, and when I started scanning https://selfservice.dev.windcorp.thm
 ![image](https://user-images.githubusercontent.com/80599694/147983843-cd6800e0-84f7-490b-b639-d96409043e3f.png)
@@ -261,5 +261,22 @@ https://fire.windcorp.thm/powershell
 https://selfservice.dev.windcorp.thm/backup
 ````
 ![image](https://user-images.githubusercontent.com/80599694/147984021-0c8a3ca4-5a2d-403a-aeb7-2cb2e8dee9b9.png)
+
+#### Awesome! 😄 The directory listing shows two files that I can download:
+````bash
+cert.pfx
+web.config
+````
+##### To be honest, I was not familiar with the pfx file, and I had to research to learn more about it.  But, this is why we are doing this right? To sharpen our skills! I learned that a pfx file is essentially in PKCS#12 format, which contains the SSL certificate. (public keys).  Well that's cool, what happens when I try to open it?
+![image](https://user-images.githubusercontent.com/80599694/147984579-744efe89-c0dc-4306-a6d7-ef0b1fa8c56f.png)
+#### Interesting, it's password protected. Can I bruteforce it? After some searching and try a few tools, I came across the perfect tool for the job.
+### Using The Crackpkcs12 Tool
+#### I decided to use my rockyou.txt password list and see if we can get the password.
+````bash
+crackpkcs12 -d rockyou.txt cert.pfx
+````
+![image](https://user-images.githubusercontent.com/80599694/147984912-dc84eb82-20ea-4551-949f-9ce057cab886.png)
+#### Boom! We got a password: ganteng
+
 
 
