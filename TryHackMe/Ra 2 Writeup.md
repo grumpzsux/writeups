@@ -301,3 +301,9 @@ dig selfservice.windcorp.thm @10.10.213.222
 ````
 ![image](https://user-images.githubusercontent.com/80599694/147987419-266a4116-f1ec-47f1-9ada-4cd2f1f8bf61.png)
 
+### Boom! Now that our IP address Resovles to the Domain, Let's steal some password hashes :)
+#### If you check back to our initial nmap scan you can see that Active Directory exists. Let's fire up Responder and use our public and private keys!
+
+### Fire up Responder!
+#### We are going to need to copy our keys to the "certs" folder where you've installed Responder, and then update the Responder.conf file.
+![image](https://user-images.githubusercontent.com/80599694/147988223-09264cd3-94b5-496f-b932-a3da51162204.png)
