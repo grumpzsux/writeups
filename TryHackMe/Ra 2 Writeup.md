@@ -213,11 +213,23 @@ http://10.10.213.2222
 #### Add the HOSTNAME to your /etc/hosts file with the IP 10.10.213.222.
 ````bash
 sudo nano /etc/hosts
-10.10.213.222
+10.10.213.222 fire.windcorp.thm
 ctrl+o
 ctrl+x
 `````
 #### However, an easier way to push this to your /etc/hosts file, you can use echo:
 ````bash
 echo 10.10.213.222  fire.windcorp.thm >>/etc/hosts
+````
+#### Let's go back to the website using the hostname: fire.windcorp.thm now:
+![image](https://user-images.githubusercontent.com/80599694/147981534-831be3fb-c3b6-4bb1-970d-edbf03c4c7c8.png)
+
+#### We are off to the races.  Next thing I check for is a few quik wins.  Is there a robots.txt file?  Can I view the source and see if there are any usernames for me? No luck. 🤨 I decided to go back to my initial nmap scan, to review before I decided to start dir busting the domain.
+### DNS is open? Are their more DNS?
+#### Let's check the certificate
+![image](https://user-images.githubusercontent.com/80599694/147982288-7a85f330-fb8a-4ed5-8b6c-8510e91421b3.png)
+#### Look at that, I found two more subdomains that I need to add to the /etc/hosts file.
+````bash
+selfservice.windcorp.thm
+selfservice.dev.windcop.thm
 ````
