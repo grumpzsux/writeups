@@ -324,4 +324,18 @@ hashcat -m 5600 hash.txt rockyou.txt -o cracked.txt
 #### After a few minutes, depending on your GPU, you should see that you cracked the hash, and now have Edward's password.
 ![image](https://user-images.githubusercontent.com/80599694/147989352-14355dc1-d905-46e6-8a80-d9c9625c36b2.png)
 
+#### Great, we have credentials.  But to what? If you look at the initial nmap scan, we do not have an SSH open, or anything these credentials can be used for. But if you remember our GoBuster enumeration finding the URL https://fire.windcorp.thm/powershell - Let's try our credentials there.
+![image](https://user-images.githubusercontent.com/80599694/147991544-8d3fcccb-9b02-4043-93ff-d50bacf12a98.png)
+#### Well look at that, we've got access!
+![image](https://user-images.githubusercontent.com/80599694/147991646-1856ecd6-e091-45ac-95ef-30c751673a02.png)
+#### Now that we have a foothold, let's look for that second flag.
+![image](https://user-images.githubusercontent.com/80599694/147991691-796ba33d-f34d-49b0-868c-10214f8d407a.png)
+#### Great!  We found the user flag, (flag 2), but how do I become admin?  I'm always looking for easy wins on CTF boxes, the first thing I am going to do is check my privileges:
+`````bash
+whoami /priv
+`````
+![image](https://user-images.githubusercontent.com/80599694/147991804-4aed2d4d-437a-4b62-b387-c590618c9bd4.png)
+#### Looks like we can escalate privlieges with Juicy Potato.  Well, thats what it reminds me of atleast.
+
+
 
