@@ -304,6 +304,13 @@ dig selfservice.windcorp.thm @10.10.213.222
 ### Boom! Now that our IP address Resovles to the Domain, Let's steal some password hashes :)
 #### If you check back to our initial nmap scan you can see that Active Directory exists. Let's fire up Responder and use our public and private keys!
 
-### Fire up Responder!
+### Configure and Fire up Responder!
 #### We are going to need to copy our keys to the "certs" folder where you've installed Responder, and then update the Responder.conf file.
 ![image](https://user-images.githubusercontent.com/80599694/147988223-09264cd3-94b5-496f-b932-a3da51162204.png)
+#### Now that we have copied our public and private keys, lets update the Responder.conf file.
+![image](https://user-images.githubusercontent.com/80599694/147988351-695da646-44ae-4053-b173-e54a4f6492f3.png)
+### Let's Fire Responder up!
+#### Make sure to use the appropriate interface, given that we are using a VPN, my interface is tun0. If you do not know your interface, just run a quick ifconfig to find which interface you want Responder to run on.
+![image](https://user-images.githubusercontent.com/80599694/147988558-2f37c72a-073d-4ad5-933e-3c13f5178c63.png)
+
+
