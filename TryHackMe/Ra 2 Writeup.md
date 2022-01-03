@@ -269,7 +269,7 @@ web.config
 ````
 ##### To be honest, I was not familiar with the pfx file, and I had to research to learn more about it.  But, this is why we are doing this right? To sharpen our skills! I learned that a pfx file is essentially in PKCS#12 format, which contains the SSL certificate. (public keys).  Well that's cool, what happens when I try to open it?
 ![image](https://user-images.githubusercontent.com/80599694/147984579-744efe89-c0dc-4306-a6d7-ef0b1fa8c56f.png)
-#### Interesting, it's password protected. Can I bruteforce it? After some searching and try a few tools, I came across the perfect tool for the job.
+#### Interesting, it's password protected. Can I bruteforce it? After some searching and trying a few tools, I came across the perfect tool for the job.
 ### Using The Crackpkcs12 Tool
 #### I decided to use my rockyou.txt password list and see if we can get the password.
 ````bash
@@ -277,6 +277,15 @@ crackpkcs12 -d rockyou.txt cert.pfx
 ````
 ![image](https://user-images.githubusercontent.com/80599694/147984912-dc84eb82-20ea-4551-949f-9ce057cab886.png)
 #### Boom! We got a password: ganteng
+### Let's generate our own public and private keys with the cert.pfx file.
+````bash
+openssl pkcs12 -in cert.pfx -nocerts -out private.pem -nodes
+````
+![image](https://user-images.githubusercontent.com/80599694/147985453-986995ec-b5d6-4a55-a2c2-1615daab1f5e.png)
+````bash
+openssl pkcs12 -in cert.pfx -out public.pem -clcerts -nokeys
+````
+![image](https://user-images.githubusercontent.com/80599694/147985564-dc6d88fa-541e-4f76-a3c4-109d5c54c5e0.png)
 
 
 
