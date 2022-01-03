@@ -224,7 +224,7 @@ echo 10.10.213.222  fire.windcorp.thm >>/etc/hosts
 #### Let's go back to the website using the hostname: fire.windcorp.thm now:
 ![image](https://user-images.githubusercontent.com/80599694/147981534-831be3fb-c3b6-4bb1-970d-edbf03c4c7c8.png)
 
-#### We are off to the races.  Next thing I check for is a few quik wins.  Is there a robots.txt file?  Can I view the source and see if there are any usernames for me? No luck. 🤨 I decided to go back to my initial nmap scan, to review before I decided to start dir busting the domain.
+#### We are off to the races.  Next thing I check for is a few quik wins.  Is there a robots.txt file?  Can I view the source and see if there are any usernames for me? No luck. 🤨 I decided to go back to my initial nmap scan to review as well as setup a Gobuster scan in the background.
 ### DNS is open? Are their more DNS?
 #### Let's check the certificate
 ![image](https://user-images.githubusercontent.com/80599694/147982288-7a85f330-fb8a-4ed5-8b6c-8510e91421b3.png)
@@ -239,3 +239,27 @@ dig windcorp.thm any @10.10.213.222
 ````
 ![image](https://user-images.githubusercontent.com/80599694/147982759-b9eef036-02a3-4ae2-b55c-87b357a73e19.png)
 #### Look at that, we found our First Flag as a TXT Record.
+
+## On the hunt for flag 2, I decided to check my GoBuster log file:
+````bash
+gobuster -u https://fire.windcorp.thm -w /home/grumpz/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -o fire.log
+````
+![image](https://user-images.githubusercontent.com/80599694/147983336-e068f871-7ba4-438e-ab90-f96a89908d36.png)
+#### Gobuster scan finds an interesting directory, called "powershell".
+````bash
+https://fire.windcorp.thm/powershell
+````
+![image](https://user-images.githubusercontent.com/80599694/147983637-ec594ee3-a51e-423a-9623-fb095e9587a0.png)
+#### Well, this is interesting, but, I do no have any credentials to login here.  Let's save this to my notes, and contiue my dir busting.
+
+#### Decided to Dir Bust all the subdomains that I had, and when I started scanning https://selfservice.dev.windcorp.thm
+![image](https://user-images.githubusercontent.com/80599694/147983843-cd6800e0-84f7-490b-b639-d96409043e3f.png)
+#### I found an interesting directory called "backup"/
+![image](https://user-images.githubusercontent.com/80599694/147983934-875a9732-0c59-4ea6-8b23-56e132ad81c0.png)
+#### Let's visit the URL and see what we can find?  Maybe, I'll get lucky.
+````bash
+https://selfservice.dev.windcorp.thm/backup
+````
+![image](https://user-images.githubusercontent.com/80599694/147984021-0c8a3ca4-5a2d-403a-aeb7-2cb2e8dee9b9.png)
+
+
