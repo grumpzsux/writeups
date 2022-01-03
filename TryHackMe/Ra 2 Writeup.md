@@ -277,6 +277,8 @@ crackpkcs12 -d rockyou.txt cert.pfx
 ````
 ![image](https://user-images.githubusercontent.com/80599694/147984912-dc84eb82-20ea-4551-949f-9ce057cab886.png)
 #### Boom! We got a password: ganteng
+#### After researching more into SSL, using OpenSSL and what can be done when you have access to an SSL certificate. In a nutshell, SSL is party used to authenticate yourself to the clients connecting to your server. If someone has access to your private key, we can essentially eavesdrop on the traffic and see that data in cleartext, or we can do a man-in-the-middle attack where the data is flowing from the server-to-the-client or client-to-the-server which can allow us to modify that data in transit. This could be done to ask a user to reauthenticate (and thereby surrender their password), ask for a credit card number, or implant malware into file downloads.  With that in mind, let's see what we can do.
+
 ### Let's generate our own public and private keys with the cert.pfx file.
 ````bash
 openssl pkcs12 -in cert.pfx -nocerts -out private.pem -nodes
