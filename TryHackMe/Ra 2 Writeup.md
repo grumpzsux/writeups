@@ -316,5 +316,9 @@ dig selfservice.windcorp.thm @10.10.213.222
 ![image](https://user-images.githubusercontent.com/80599694/147988968-ce73fa94-2034-4b28-ad0d-11b5e86d4257.png)
 #### Boom!  Look at that, we captured an NTLMv2 hash! Next up, we are going to need to crack the NTLMv2 hash.
 ### Using Hashcat to Crack Hashes
+````bash
+hashcat -m 5600 hash.txt rockyou.txt -o cracked.txt
+````
+![image](https://user-images.githubusercontent.com/80599694/147989174-d944da5e-d8e9-4278-ba08-75072d53ee62.png)
 
 
