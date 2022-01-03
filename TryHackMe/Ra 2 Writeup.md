@@ -312,5 +312,9 @@ dig selfservice.windcorp.thm @10.10.213.222
 ### Let's Fire Responder up!
 #### Make sure to use the appropriate interface, given that we are using a VPN, my interface is tun0. If you do not know your interface, just run a quick ifconfig to find which interface you want Responder to run on.
 ![image](https://user-images.githubusercontent.com/80599694/147988558-2f37c72a-073d-4ad5-933e-3c13f5178c63.png)
+#### After a couple minutes, you should be able to capture an NTLMv2 hash for the user: edwardle however, if nothing is coming through, go and visist the URL and then check your Responder.
+![image](https://user-images.githubusercontent.com/80599694/147988968-ce73fa94-2034-4b28-ad0d-11b5e86d4257.png)
+#### Boom!  Look at that, we captured an NTLMv2 hash! Next up, we are going to need to crack the NTLMv2 hash.
+### Using Hashcat to Crack Hashes
 
 
