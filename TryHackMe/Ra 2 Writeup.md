@@ -296,5 +296,8 @@ openssl pkcs12 -in cert.pfx -out public.pem -clcerts -nokeys
 #### Since we have access to update DNS Records, we are using nsupdate to send a request to delete the current A record for the selfservice.windcorp.thm domain, then sending an update add request with our own IP address as an A record to have the selfservice domain resolve to our IP.
 
 ### Let's confirm that the update worked but doing a quick dig
+````bash
+dig selfservice.windcorp.thm @10.10.213.222
+````
 ![image](https://user-images.githubusercontent.com/80599694/147987419-266a4116-f1ec-47f1-9ada-4cd2f1f8bf61.png)
 
